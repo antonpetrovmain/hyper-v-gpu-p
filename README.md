@@ -6,3 +6,14 @@
 
 2. Run install_dxgkrnl.sh on VM.
 
+3. Set VIDEO_CARDS="d3d12 intel i965 iris fbdev"
+
+4. Re-emerge mesa.
+
+To troubleshoot, try:
+
+export MESA_D3D12_DEFAULT_ADAPTER_NAME=dxgkrnl glxinfo -B
+
+For proper benchmarking:
+https://benchmark.unigine.com/valley
+

@@ -1,6 +1,6 @@
 # Specify your VM name, IP address and username (to use for scp):
 $username="anton"
-$ip = "172.26.18.167"
+$ip = "172.26.25.180"
 $temporaryFolderPath = "~/wsl"
 
 # Create a temporary directory

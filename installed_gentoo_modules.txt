@@ -1,0 +1,13 @@
+Module                  Size  Used by
+dxgkrnl               221184  2
+hv_netvsc             110592  0
+hv_utils               45056  0
+hyperv_fb              24576  2
+hv_balloon             36864  0
+pci_hyperv             49152  0
+hyperv_keyboard        12288  0
+pci_hyperv_intf        12288  1 pci_hyperv
+hv_storvsc             28672  4
+hid_hyperv             12288  0
+hv_vmbus              172032  9 hv_balloon,hv_utils,hv_netvsc,hid_hyperv,dxgkrnl,hv_storvsc,hyperv_keyboard,pci_hyperv,hyperv_fb
+

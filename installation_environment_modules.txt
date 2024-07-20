@@ -1,0 +1,45 @@
+(chroot) livecd / # lsmod
+Module                  Size  Used by
+xfs                  1847296  1
+cfg80211              950272  0
+rfkill                 28672  1 cfg80211
+8021q                  32768  0
+ipv6                  507904  16
+video                  57344  0
+backlight              16384  1 video
+wmi                    24576  1 video
+button                 16384  0
+fan                    12288  0
+thermal                20480  0
+dm_multipath           28672  0
+dm_mod                143360  1 dm_multipath
+dax                    32768  1 dm_mod
+intel_pmc_core         69632  0
+crct10dif_pclmul       12288  1
+polyval_clmulni        12288  0
+polyval_generic        12288  1 polyval_clmulni
+gf128mul               12288  1 polyval_generic
+sha512_ssse3           45056  0
+sha512_generic         12288  1 sha512_ssse3
+sha256_ssse3           28672  0
+sha1_ssse3             32768  0
+hid_hyperv             12288  0
+sha1_generic           12288  1 sha1_ssse3
+ac                     12288  0
+battery                20480  0
+vmgenid                12288  0
+efivarfs               24576  1
+hv_storvsc             20480  5
+scsi_transport_fc      73728  1 hv_storvsc
+hv_netvsc              90112  0
+hv_utils               32768  0
+cn                     12288  1 hv_utils
+ptp                    32768  1 hv_utils
+pps_core               12288  1 ptp
+hv_balloon             32768  0
+hyperv_keyboard        12288  0
+crc32c_intel           16384  0
+aesni_intel           356352  0
+crypto_simd            12288  1 aesni_intel
+hv_vmbus              126976  6 hv_balloon,hv_utils,hv_netvsc,hid_hyperv,hv_storvsc,hyperv_keyboard
+cryptd                 24576  1 crypto_simd
