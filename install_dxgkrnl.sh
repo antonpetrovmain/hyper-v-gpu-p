@@ -1,5 +1,5 @@
 #!/bin/bash -e
-$temporaryFolderPath = "~/wsl"
+temporaryFolderPath="/home/anton/wsl"
 
 # You can also try with the latest version available:
 BRANCH=linux-msft-wsl-6.6.y
@@ -9,7 +9,7 @@ if [ "$EUID" -ne 0 ]; then
     exec sudo $0 "$@"
 fi
 
-apt-get install -y git dkms
+emerge --ask dev-vcs/git sys-kernel/dkms
 
 git clone -b $BRANCH --depth=1 https://github.com/microsoft/WSL2-Linux-Kernel
 cd WSL2-Linux-Kernel
@@ -40,5 +40,8 @@ dkms install dxgkrnl/$VERSION
 
 mkdir -p /usr/lib/wsl/{lib,drivers}
 cp -r $temporaryFolderPath /usr/lib/
-cp -r /mnt/Windows/system32/DriverStore/FileRepository/nv_dispi.inf_amd64_* /usr/lib/wsl/drivers/   # this may be different for different GPU vendors, refer to tutorials for Windows guests if needed
 chmod -R 0555 /usr/lib/wsl
+
+echo "/usr/lib/wsl/lib" > /etc/ld.so.conf.d/ld.wsl.conf
+ldconfig  # (if you get 'libcuda.so.1 is not a symbolic link', just ignore it)
+ln -s /usr/lib/wsl/lib/libd3d12core.so /usr/lib/wsl/lib/libD3D12Core.so
